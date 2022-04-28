@@ -1,0 +1,171 @@
+
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: Lato;
+    box-sizing: border-box;
+}
+
+/* ~~~~ [NAV BAR] ~~~~ */
+.menu-nav {
+    width: 100vw;
+    height: 15vh;
+    display: flex;
+    flex-direction: row;
+    font-size: 18px;
+    align-items: center;
+    justify-content: center;
+    background-color: #e7e7e7;
+}
+
+.menu-nav-main {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-nav-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 28px;
+}
+
+.menu-nav-h1 {
+    color: #0077B6;
+}
+
+.logout {
+    text-decoration: none;
+    color: #00B4D8;
+}
+
+.logout:hover,
+.logout:focus {
+    color: rgb(255, 43, 43);
+}
+
+.naatik-logo {
+    margin-right: 5px;
+    width: 24px;
+    height: 24px;
+}
+
+/* ~~~~ [MAIN MENU] ~~~~ */
+
+.main-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 85vh;
+}
+
+.svg-logout {
+    width: calc(504px / 24); 
+    height: calc(386px / 24);
+}
+
+.main-menu-header {
+    color: #0077B6;
+    line-height: 2;
+    font-size: 36px;
+}
+
+.header-container {
+    width: 80%;
+    justify-content: flex-start;
+}
+
+.cards-container {
+    width: 80%;
+    min-height: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+.card {
+    width: calc(100% / 3);
+    color: #fff;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    border-radius: 0.25rem;
+    overflow: hidden;
+    transition: transform 500ms ease;
+}
+
+.c1 {
+    background-image: url(../imgs/rate.jpg);
+    background-size: cover;
+}
+
+.c2 {
+    background-image: url(../imgs/code.jpg);
+    background-size: cover;
+}
+
+.c3 {
+    background-image: url(../imgs/sim.jpg);
+    background-size: cover;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-title {
+    position: relative;
+    margin-bottom: 10px;
+    line-height: 1.5;
+    /* making an inline elemente but it is still a block element */
+    width: max-content;
+}
+
+.card-content {
+    --pading: 1.5rem;
+    padding: var(--pading);
+    background: linear-gradient(hsl(0 0% 0% / 0), hsl(0 0% 0% / 1));
+}
+
+.card-title::after {
+    left: calc(var(--pading) * -1);
+    bottom: 0;
+    content: "";
+    position: absolute;
+    height: 3px;
+    width: calc(100% + var(--pading));
+    background-color: #36d7ff;
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: transform 500ms ease;
+}
+
+.card:hover  .card-title::after {
+    transform: scaleX(1);
+}
+
+.card-btn {
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    color: #027491;
+    background-color: #36d7ff;
+    padding: 0.5em 1.25em;
+    border-radius: 0.25em;
+}
+
+.card-btn:hover,
+.card-btn:focus {
+    background-color: #fff;
+}
+
+.card-body {
+    margin-bottom: 15px;
+}

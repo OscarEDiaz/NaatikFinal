@@ -1,0 +1,255 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    font-family: Lato;
+}
+
+/* ~~~~ [LOGIN PAGE] ~~~~ */
+
+/* ~ [LOGIN HERO] ~ */
+
+.login-page {
+    width: 100vw;
+    height: 100vh;
+}
+
+.login-main-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.login-header {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    color: #fff;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background: rgb(0,32,48);
+    background: linear-gradient(360deg, rgba(0,32,48,1) 0%, rgba(5,6,39,1) 36%, rgba(3,4,94,1) 100%); 
+}
+
+.circle {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    background-color: #050627;
+    border-radius: 100%;
+}
+
+.c1 {
+    top: -75px;
+    left: 350px;
+}
+
+.c2 {
+    left: -75px;
+}
+
+.c3 {
+    width: 20px;
+    height: 20px;
+    left: 125px;
+    top: 260px;
+    background-color: #00B4D8;
+}
+
+.c4 {
+    width: 15px;
+    height: 15px;
+    top: 270px;
+    background-color: #0077B6;
+}
+
+.c5 {
+    width: 15px;
+    height: 15px;
+    left: 430px;
+    top: 280px;
+    background-color: #0077B6;
+}
+
+.c6 {
+    width: 15px;
+    height: 15px;
+    left: 350px;
+    top: 320px;
+    background-color: #00B4D8;
+}
+
+.c7 {
+    width: 15px;
+    height: 15px;
+    left: 320px;
+    top: 380px;
+    background-color: #90E0EF;
+}
+
+.c8 {
+    width: 20px;
+    height: 20px;
+    left: 270px;
+    top: 450px;
+    background-color: #90E0EF;
+}
+
+.login-title {
+    height: 45%;
+    width: 100%;
+    display: flex;
+    text-align: left;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login-headers {
+    width: 80%;
+    margin-left: 40px;
+    
+}
+
+.login-h {
+    font-size: 36px;
+}
+
+.login-subs {
+    width: 50%;
+    display: flex;
+    color: #0077B6;
+    list-style: none;
+    margin-top: 20px;
+    font-weight: bold;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.login-footer {
+    height: 55%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    justify-content: flex-end;
+}
+
+.login-footer-title {
+    width: 80%;
+    display: flex;
+    font-size: 24px;
+    margin-left: 40px;
+    margin-bottom: 40px;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.naatik-logo {
+    margin-right: 10px;
+    width: 24px;
+    height: 24px;
+}
+
+/* ~ [LOGIN FORM] ~ */
+
+.login-form-section {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.login-form-main-container {
+    height: 70%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-form-headers {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 40%;
+}
+
+.login-form-h1 {
+    color: #03045E;
+    font-size: 28px;
+    font-weight: bolder;
+}
+
+.naatik-h1 {
+    font-size: 28px;
+    font-weight: bolder;
+    color: #0077B6;
+}
+
+.login-form-h2 {
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight: bolder;
+}
+
+.blue-line {
+    margin-top: 10px;
+    width: 40%;
+    height: 5px;
+    background-color: #00B4D8;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 60%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.email {
+    flex-direction: column;
+    width: 100%;
+    display: flex;
+}
+
+
+.email-h1 {
+    color: #00B4D8;
+    font-size: 14px;
+    font-weight: bolder;
+    margin-bottom: 5px;
+}
+
+.input-login {
+    width: 100%;
+    border-top: none;
+    color: #56565B;
+    border-left: none;
+    border-right: none;
+    font-weight: bolder;
+    background-color: transparent;
+    padding: 5px 0px 5px 0px;
+    border-bottom: 3px solid #00B4D8;
+}
+
+.email-inp {
+    width: 100%;
+}
+
+.login-submit {
+    padding: 10px 50px 10px 50px; 
+    background-color: #CAF0F8;
+    border: none;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+.login-submit:hover {
+    box-shadow: inset 0px 0px 0px 3px #CAF0F8;
+    background-color: transparent;
+}
