@@ -2,10 +2,10 @@
 import csv
 import random
 
-fl = open("querys.sql", 'w')
+fl = open("Utilidad/clientquerys.sql", 'w')
 fl.write("insert into naatik_clientes values\n")
 
-csvFile = open("churn_test.csv", "r")
+csvFile = open("Utilidad/churn_test.csv", "r")
 csvFile = csv.DictReader(csvFile)
 
 servTelefono = {
@@ -40,26 +40,26 @@ pago = {
 }
 
 for line in csvFile:
-    query = "(" + f"\"{line['ClienteID']}\"" + ","
-    query += str(1) if line['Genero'] == "Si" else str(0) + ","
-    query += line['EsJubilado'] + ","
-    query += str(1) if line['TienePareja'] == "Si" else str(0) + ","
-    query += str(1) if line['TieneDependientes'] == "Si" else str(0) + ","
-    query += str(line['MesesComoCliente']) + ","
-    query += str(1) if line['TieneServicioDeTelefono'] == "Si" else str(0) + ","
-    query += str(servTelefono[line['TieneMultiplesLineas']]) + ","
-    query += str(tipoInternet[line['ServicioInternet']]) + ","
-    query += str(servInternet[line['SeguridadEnLinea']]) + ","
-    query += str(servInternet[line['BackupEnLinea']]) + ","
-    query += str(servInternet[line['ProteccionDeDispositivo']]) + ","
-    query += str(servInternet[line['SoporteTecnico']]) + ","
-    query += str(servInternet[line['StreamingTV']]) + ","
-    query += str(servInternet[line['StreamingPeliculas']]) + ","
-    query += str(contracto[line['Contracto']]) + ","
-    query += str(1) if line['FacturaElectronica'] == "Si" else str(0) + ","
-    query += str(pago[line['MetodoDePago']]) + ","
-    query += str(line['CargoMensual']) + ","
-    query += str(line['CargosTotales']) + ","
+    query = "(" + f"\"{line['ClienteID']}\"" + ",\t"
+    query += str(1) if line['Genero'] == "Si" else str(0) + ",\t"
+    query += line['EsJubilado'] + ",\t"
+    query += str(1) if line['TienePareja'] == "Si" else str(0) + ",\t"
+    query += str(1) if line['TieneDependientes'] == "Si" else str(0) + ",\t"
+    query += str(line['MesesComoCliente']) + ",\t"
+    query += str(1) if line['TieneServicioDeTelefono'] == "Si" else str(0) + ",\t"
+    query += str(servTelefono[line['TieneMultiplesLineas']]) + ",\t"
+    query += str(tipoInternet[line['ServicioInternet']]) + ",\t"
+    query += str(servInternet[line['SeguridadEnLinea']]) + ",\t"
+    query += str(servInternet[line['BackupEnLinea']]) + ",\t"
+    query += str(servInternet[line['ProteccionDeDispositivo']]) + ",\t"
+    query += str(servInternet[line['SoporteTecnico']]) + ",\t"
+    query += str(servInternet[line['StreamingTV']]) + ",\t"
+    query += str(servInternet[line['StreamingPeliculas']]) + ",\t"
+    query += str(contracto[line['Contracto']]) + ",\t"
+    query += str(1) if line['FacturaElectronica'] == "Si" else str(0) + ",\t"
+    query += str(pago[line['MetodoDePago']]) + ",\t"
+    query += str(line['CargoMensual']) + ",\t"
+    query += str(line['CargosTotales']) + ",\t"
     query += str(random.randint(0,10000) / 100) + "),\n"
 
     fl.write(query)
