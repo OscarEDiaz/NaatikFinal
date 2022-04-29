@@ -1,7 +1,5 @@
 <?php
-    $DBName = "Naatik";
-    $DBUser = "Oscar";
-    $DBPass = 'oscar123';
+    require_once "PHP/credentials.php";
     $connection = new PDO("mysql:host=localhost;dbname=$DBName", $DBUser, $DBPass,
     
     array(
