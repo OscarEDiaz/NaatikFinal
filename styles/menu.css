@@ -14,8 +14,18 @@
     flex-direction: row;
     font-size: 18px;
     align-items: center;
+    position: relative;
     justify-content: center;
-    background-color: #e7e7e7;
+}
+
+.menu-nav::after {
+    content: '';
+    height: 1px;
+    background-color: #0077B6;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
 }
 
 .menu-nav-main {
