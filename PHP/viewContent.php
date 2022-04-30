@@ -93,10 +93,13 @@ function churnContent($connection){
     <form action="churn.php?selectedTable=Churn+rate" method="POST">
         <label for="sortby">Ordenar por</label>
         <select id='sortby' onchange='this.form.submit()' name='sorting'>
-            <option value="1">Client ID - Menor a mayor</option>
-            <option value="2">Client ID - Mayor a menor</option>
-            <option value="3">Churn rate - Menor a mayor</option>
-            <option value="4">Churn rate - Mayor a menor</option>
+            <?php 
+                $sortingInp = isset($_POST['sorting']) ? $_POST['sorting'] : 1;
+            ?>
+            <option value="1" <?php if($sortingInp == 1) echo "selected";?>>Client ID - Menor a mayor</option>
+            <option value="2" <?php if($sortingInp == 2) echo "selected";?>>Client ID - Mayor a menor</option>
+            <option value="3" <?php if($sortingInp == 3) echo "selected";?>>Churn rate - Menor a mayor</option>
+            <option value="4" <?php if($sortingInp == 4) echo "selected";?>>Churn rate - Mayor a menor</option>
         </select>
         <noscript><input type="submit" value="Submit"></noscript>
     </form>
