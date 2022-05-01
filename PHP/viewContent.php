@@ -28,20 +28,20 @@ function generalView($connection){
     echo "<table class='churn'>";
 
     echo "<tr>";
-    foreach($headersList as $header){
-        echo "<th class='churn-header'> $header </th>";
-    }
+        foreach($headersList as $header){
+            echo "<th class='churn-header'> $header </th>";
+        }
     echo "</tr>";
 
     $query = 
-    "select idCliente, genero, esJubilado, tienePareja, tieneDependientes, mesesComoCliente, tieneServTelefono, tieneMulLineas, internet, seguridadEnLinea, backupEnLinea, proteccionDispositivo, soporteTecnico, streamingTV, streamingPeliculas, contrato, facturaElectronica, pago, cargoMensual, cargosTotales, abandono from naatik_clientes natural join naatik_tipoContrato natural join naatik_tipoInternet natural join naatik_tipoPago;";
+        "select idCliente, genero, esJubilado, tienePareja, tieneDependientes, mesesComoCliente, tieneServTelefono, tieneMulLineas, internet, seguridadEnLinea, backupEnLinea, proteccionDispositivo, soporteTecnico, streamingTV, streamingPeliculas, contrato, facturaElectronica, pago, cargoMensual, cargosTotales, abandono from naatik_clientes natural join naatik_tipoContrato natural join naatik_tipoInternet natural join naatik_tipoPago;";
     $resultados = $connection -> prepare($query);
     $resultados -> execute();
     $resultados = ($resultados -> fetchAll(PDO::FETCH_ASSOC));
     foreach ($resultados as $resultado) {
         echo "<tr>";
         foreach ($resultado as $key => $value){
-            switch($key){
+            switch ($key) {
                 case "genero":
                     $s = (($value) ? "Hombre" : "Mujer");
                     echo "<td class='churn-data'>".$s."</td>";
@@ -146,46 +146,9 @@ function dataView($connection){
             <canvas id=\"myChart\"></canvas>
         </div>
         
-        <script>
-        const labels = [
-            '0 - 20',
-            '21 - 40',
-            '41 - 60',
-            '61 - 80',
-            '81 - 100',
-        ];
+        <script src=\"JS/graphs.js\"></script>
+    ";
 
-  const data = {
-    labels: labels,
-    datasets: [{
-      label: 'CHURN rate (%)',
-      backgroundColor: 'rgb(10,10,210)',
-      borderColor: 'rgb(255, 99, 132)',
-      data: [0, 10, 5, 2, 20, 30, 45],
-    }]
-  };
-
-  const config = {
-    type: 'bar',
-    data: data,
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
-        }
-      }
-    },
-  };
-</script>
-
-<script>
-  const myChart = new Chart(
-    document.getElementById('myChart'),
-    config
-  );
-</script>
- ";
-    
 }
 
 function intervencionView($connection){

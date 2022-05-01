@@ -1,6 +1,6 @@
 <?php
     require_once "PHP/credentials.php";
-    $GLOBALS['connection'] = new PDO("mysql:host=localhost;dbname=$DBName", $DBUser, $DBPass,
+    $GLOBALS['connection'] = new PDO("mysql:host=localhost;dbname=".$credentialsOscar['DBName'], $credentialsOscar['DBUser'], $credentialsOscar['DBPass'],
     array(
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
         PDO::ATTR_EMULATE_PREPARES => false)
