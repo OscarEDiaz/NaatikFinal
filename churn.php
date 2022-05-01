@@ -20,7 +20,7 @@
             array_push($tables_array, $table);
         }
     }
-
+    
     $default = 'naatik_clientes';
 
     foreach ($tables_array as $table) {
@@ -29,10 +29,8 @@
         }  
     }
     
-
     $sql_headers = $connection -> prepare("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = 'Naatik' AND TABLE_NAME = ?");
     $sql_headers -> execute(array($default));
-
     $headers = $sql_headers -> fetchAll(PDO::FETCH_ASSOC);
 ?>
 
@@ -52,7 +50,9 @@
     <nav class="menu-nav">
         <div class="menu-nav-main">          
             <div class="menu-nav-header">
-                <img src="imgs/naatik-logo.png" alt="Logo Naatik" class="naatik-logo">
+                <a href="menu.php">
+                    <img src="imgs/naatik-logo.png" alt="Logo Naatik" class="naatik-logo">
+                </a>
                 <h1 class="menu-nav-h1">Naatik</h1>
             </div>
             <a href="" class="logout">Cerrar sesión</a>
@@ -85,11 +85,14 @@
                                         array_push($columnNames, $header);
                                     }
                                 }
+                                echo "<th class='churn-header'>internet</th>";
+                                array_push($columnNames, 'internet');
+
                             ?>
                         </tr>
                         <?php
-        
-                            $query =  "SELECT * FROM $default";
+                            $lol = 'naatik_tipointernet';
+                            $query =  "SELECT * FROM $default NATURAL JOIN $lol";
                             foreach ($connection -> query($query) as $row) {
                                 echo "<tr>";
                                     foreach ($columnNames as $name) {
