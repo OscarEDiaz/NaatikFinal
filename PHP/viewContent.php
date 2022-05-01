@@ -1,6 +1,6 @@
 <?php
 
-function generalContent($connection){
+function generalView($connection){
     $headersList = array(
         "Client ID",
         "Género",
@@ -88,7 +88,7 @@ function generalContent($connection){
     echo "</table>";
 }
 
-function churnContent($connection){
+function churnView($connection){
     ?>
     <form action="churn.php?selectedTable=Churn+rate" method="POST">
         <label for="sortby">Ordenar por</label>
@@ -139,5 +139,56 @@ function churnContent($connection){
         echo "</tr>";
     }
     echo "</table>";
+}
+
+function dataView($connection){
+    echo "<div>
+            <canvas id=\"myChart\"></canvas>
+        </div>
+        
+        <script>
+        const labels = [
+            '0 - 20',
+            '21 - 40',
+            '41 - 60',
+            '61 - 80',
+            '81 - 100',
+        ];
+
+  const data = {
+    labels: labels,
+    datasets: [{
+      label: 'CHURN rate (%)',
+      backgroundColor: 'rgb(10,10,210)',
+      borderColor: 'rgb(255, 99, 132)',
+      data: [0, 10, 5, 2, 20, 30, 45],
+    }]
+  };
+
+  const config = {
+    type: 'bar',
+    data: data,
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    },
+  };
+</script>
+
+<script>
+  const myChart = new Chart(
+    document.getElementById('myChart'),
+    config
+  );
+</script>
+ ";
+    
+}
+
+function intervencionView($connection){
+    echo "<img src='sl.gif' alt=''>";
 }
 ?>

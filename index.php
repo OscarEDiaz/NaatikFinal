@@ -22,7 +22,6 @@
             $sql -> execute(array($emailInp));
             $usuarioQuery = $sql -> fetch();
             $contrasena = $usuarioQuery['password'];
-            $userID = $usuarioQuery['userID'];
             
             if($contrasena == $passwordInp){
                 header("Location: menu.php");

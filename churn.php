@@ -26,6 +26,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet"> 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>CHURN RATE</title>
 </head>
 <body>
@@ -62,10 +63,18 @@
                         require_once "PHP/viewContent.php";
                         switch($currentTable){
                             case "General":
-                                generalContent($connection);
+                                generalView($connection);
                                 break;
                             case "Churn rate":
-                                churnContent($connection);
+                                churnView($connection);
+                                break;
+                            case "Visualización de datos":
+                                dataView($connection);
+                                break;
+                            case "Métodos de intervención":
+                                echo "aún no :(";
+                                echo "<br>";
+                                intervencionView($connection);
                                 break;
                         }
                     ?>
