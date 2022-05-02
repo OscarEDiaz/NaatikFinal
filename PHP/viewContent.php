@@ -103,7 +103,7 @@ function churnView($connection){
         </select>
         <noscript><input type="submit" value="Submit"></noscript>
     </form>
-
+    <div class="churn-table-container">
     <table class='churn'>
         <tr>
             <th class='churn-header'> Client ID </th>
@@ -138,17 +138,18 @@ function churnView($connection){
         }
         echo "</tr>";
     }
-    echo "</table>";
+    ?>
+    </table>
+    </div>
+    <?php
 }
 
 function dataView($connection){
+    require_once "barGraph.php";
     echo "<div>
-            <canvas id=\"myChart\"></canvas>
-        </div>
-        
-        <script src=\"JS/graphs.js\"></script>
-    ";
-
+            <canvas id='myChart'></canvas>
+        </div>";
+    graphBar($connection, "myChart");
 }
 
 function intervencionView($connection){

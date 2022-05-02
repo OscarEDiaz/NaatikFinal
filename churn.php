@@ -1,6 +1,6 @@
 <?php
     require_once "PHP/credentials.php";
-    $GLOBALS['connection'] = new PDO("mysql:host=localhost;dbname=".$credentialsOscar['DBName'], $credentialsOscar['DBUser'], $credentialsOscar['DBPass'],
+    $GLOBALS['connection'] = new PDO("mysql:host=localhost;dbname=".$credentialsRoot['DBName'], $credentialsRoot['DBUser'], $credentialsRoot['DBPass'],
     array(
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
         PDO::ATTR_EMULATE_PREPARES => false)
@@ -61,27 +61,25 @@
                     $currentTable = (isset($_GET['selectedTable'])) ? $_GET['selectedTable'] : "General";
                 ?>
                 <div class="churn-container">
-                    <div class="churn-table-container">
-                        <?php 
-                            require_once "PHP/viewContent.php";
-                            switch($currentTable){
-                                case "General":
-                                    generalView($connection);
-                                    break;
-                                case "Churn rate":
-                                    churnView($connection);
-                                    break;
-                                case "Visualización de datos":
-                                    dataView($connection);
-                                    break;
-                                case "Métodos de intervención":
-                                    echo "aún no :(";
-                                    echo "<br>";
-                                    intervencionView($connection);
-                                    break;
-                            }
-                        ?>
-                    </div>
+                    <?php 
+                        require_once "PHP/viewContent.php";
+                        switch($currentTable){
+                            case "General":
+                                generalView($connection);
+                                break;
+                            case "Churn rate":
+                                churnView($connection);
+                                break;
+                            case "Visualización de datos":
+                                dataView($connection);
+                                break;
+                            case "Métodos de intervención":
+                                echo "aún no :(";
+                                echo "<br>";
+                                intervencionView($connection);
+                                break;
+                        }
+                    ?>
                 </div>
             </div>
         </div>

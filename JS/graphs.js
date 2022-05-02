@@ -1,3 +1,4 @@
+function graphBar(valuesI, labelsI){
 const labels = [
     '0 - 20',
     '21 - 40',
@@ -7,7 +8,7 @@ const labels = [
 ];
 
 const data = {
-    labels: labels,
+    labels: labelsI,
     datasets: [{
         label: 'CHURN rate (%)',
         backgroundColor: 'rgb(10,10,210)',
@@ -32,3 +33,4 @@ const myChart = new Chart(
     document.getElementById('myChart'),
     config
 );
+}
