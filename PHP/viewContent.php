@@ -149,18 +149,16 @@ function dataView($connection){
     require_once "barGraph.php";
     // require_once "barPie.php";
 
-    echo "<div>
+    echo "<div class ='leftContent'>
             <canvas id='churnBar'></canvas>
-        </div>";
-    echo "<div>
             <canvas id='cargosmBar'></canvas>
         </div>";
-    echo "<div>
+    echo "<div class ='rightContent'>
             <canvas id='cargostBar'></canvas>
         </div>";
-    graphBar($connection, "churnBar", "Histograma - CHURN rate", 'abandono', 100, 10);
-    graphBar($connection, "cargosmBar", "Histograma - Cargos mensuales", 'cargoMensual', null, 10);
-    graphBar($connection, "cargostBar", "Histograma - Cargos totales", 'cargosTotales', null, 10);
+    graphBar($connection, "churnBar", "Histograma - CHURN rate", 'abandono', 'Rango de % de abandono', 'Cantidad de clientes', 100, 10);
+    graphBar($connection, "cargosmBar", "Histograma - Cargos mensuales", 'cargoMensual', 'Rango de cargo mensual ($)', 'Cantidad de clientes', null, 5);
+    graphBar($connection, "cargostBar", "Histograma - Cargos totales", 'cargosTotales', 'Rango de cargos todales ($)', 'Cantidad de clientes', null, 5);
 }
 
 function intervencionView($connection){

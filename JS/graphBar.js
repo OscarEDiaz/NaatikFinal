@@ -1,4 +1,4 @@
-function graphBar(valuesI, labelsI, backgrC, borderC, canvasID, titleI){
+function graphBar(valuesI, labelsI, backgrC, borderC, canvasID, titleI, xLabel, yLabel){
   const data = {
       labels: labelsI,
       datasets: [{
@@ -19,13 +19,13 @@ function graphBar(valuesI, labelsI, backgrC, borderC, canvasID, titleI){
                   beginAtZero: true,
                   title: {
                     display: true,
-                    text: 'Cantidad de clientes'
+                    text: yLabel
                   }
               },
               x: {
                 title: {
                   display: true,
-                  text: 'Rango de % de abandono'
+                  text: xLabel
                 }
             }
           }

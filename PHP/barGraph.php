@@ -1,5 +1,5 @@
 <?php
-    function graphBar($connection, $canvasID, $title, $column, $maxval, $nBars = 10){
+    function graphBar($connection, $canvasID, $title, $column, $xLabel, $yLabel, $maxval, $nBars = 10){
         if(null == $maxval){
             $maxQuery = ($connection -> query("select max($column) from naatik_clientes")) -> fetch();
             $maxval = $maxQuery["max($column)"];
@@ -32,8 +32,8 @@
         // string con arreglo de JS para los labels
         $labelsJS = '[';
         for($i = 0; $i < $maxval; $i += $steps){
-            $li = $i;
-            $ls = $i + $steps;
+            $li = round($i);
+            $ls = round($i + $steps);
             $labelsJS = $labelsJS . "'$li - $ls', ";
         }
         $labelsJS = $labelsJS . ']';
@@ -53,6 +53,6 @@
         $borderC = $borderC . "]";
 
         echo "<script src='JS/graphBar.js'> </script>";
-        echo "<script> graphBar($valuesJS, $labelsJS, $backgrC, $borderC, '$canvasID', '$title') </script>";
+        echo "<script> graphBar($valuesJS, $labelsJS, $backgrC, $borderC, '$canvasID', '$title', '$xLabel', '$yLabel') </script>";
     }
 ?>

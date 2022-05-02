@@ -178,6 +178,7 @@ body {
     height: 80%;
     width: 90%;
     overflow: auto;
+    display: flex;
 }
 
 .churn-table-container {
@@ -204,4 +205,14 @@ body {
     padding: 10px;
     text-align: center;
     border: 1px solid rgb(216, 216, 216);
+}
+
+.leftContent{
+    width: 50%;
+    padding-right: 30px;
+}
+
+.rightContent{
+    width: 50%;
+    padding-left: 30px;
 }
