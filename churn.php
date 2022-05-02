@@ -51,7 +51,7 @@
                 <form class="tables-names" method="GET" action="churn.php">    
                     <?php
                         foreach ($optNames as $option){
-                            echo "<div class='table-opt'><p class='table-name'> </p><input type='submit' class='input-opt' value='$option' name ='selectedTable'></div>";
+                            echo "<div class='table-opt'><input type='submit' class='input-opt' value='$option' name ='selectedTable'></div>";
                         }
                     ?>
                 </form>
@@ -61,25 +61,27 @@
                     $currentTable = (isset($_GET['selectedTable'])) ? $_GET['selectedTable'] : "General";
                 ?>
                 <div class="churn-container">
-                    <?php 
-                        require_once "PHP/viewContent.php";
-                        switch($currentTable){
-                            case "General":
-                                generalView($connection);
-                                break;
-                            case "Churn rate":
-                                churnView($connection);
-                                break;
-                            case "Visualización de datos":
-                                dataView($connection);
-                                break;
-                            case "Métodos de intervención":
-                                echo "aún no :(";
-                                echo "<br>";
-                                intervencionView($connection);
-                                break;
-                        }
-                    ?>
+                    <div class="churn-table-container">
+                        <?php 
+                            require_once "PHP/viewContent.php";
+                            switch($currentTable){
+                                case "General":
+                                    generalView($connection);
+                                    break;
+                                case "Churn rate":
+                                    churnView($connection);
+                                    break;
+                                case "Visualización de datos":
+                                    dataView($connection);
+                                    break;
+                                case "Métodos de intervención":
+                                    echo "aún no :(";
+                                    echo "<br>";
+                                    intervencionView($connection);
+                                    break;
+                            }
+                        ?>
+                    </div>
                 </div>
             </div>
         </div>
