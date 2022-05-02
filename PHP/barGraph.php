@@ -1,22 +1,25 @@
 <?php
-    function graphBar($connection, $canvasID){
-        // numero de barras
-        $nBars = 5;
+    function graphBar($connection, $canvasID, $title, $column, $maxval, $nBars = 10){
+        if(null == $maxval){
+            $maxQuery = ($connection -> query("select max($column) from naatik_clientes")) -> fetch();
+            $maxval = $maxQuery["max($column)"];
+        }
         // que rango representa cada una
-        $steps = 100 / $nBars;
+        $steps = $maxval / $nBars;
 
         $values = array();
 
-        for($i = 0; $i < 100; $i += $steps){
+
+        for($i = 0; $i < $maxval; $i += $steps){
             // limite superior e inferior del rango
             $li = $i;
             $ls = $i + $steps;
             $query = ($i) ?
-            "select count(idCliente) from naatik_clientes where abandono > $li and abandono <= $ls" :
+            "select count($column) from naatik_clientes where $column > $li and $column <= $ls" :
             // solo en la primer iteracion, el limite inferior (0), es inclusivo
-            "select count(idCliente) from naatik_clientes where abandono >= $li and abandono <= $ls";
+            "select count($column) from naatik_clientes where $column >= $li and $column <= $ls";
             $results = ($connection -> query($query)) -> fetch();
-            $value = $results['count(idCliente)'];
+            $value = $results["count($column)"];
             array_push($values, $value);
         }
 
@@ -28,7 +31,7 @@
         $valuesJS = $valuesJS . ']';
         // string con arreglo de JS para los labels
         $labelsJS = '[';
-        for($i = 0; $i < 100; $i += $steps){
+        for($i = 0; $i < $maxval; $i += $steps){
             $li = $i;
             $ls = $i + $steps;
             $labelsJS = $labelsJS . "'$li - $ls', ";
@@ -50,6 +53,6 @@
         $borderC = $borderC . "]";
 
         echo "<script src='JS/graphBar.js'> </script>";
-        echo "<script> graphBar($valuesJS, $labelsJS, $backgrC, $borderC, $canvasID) </script>";
+        echo "<script> graphBar($valuesJS, $labelsJS, $backgrC, $borderC, '$canvasID', '$title') </script>";
     }
 ?>

@@ -1,10 +1,11 @@
-function graphBar(valuesI, labelsI, backgrC, borderC, canvasID){
+function graphBar(valuesI, labelsI, backgrC, borderC, canvasID, titleI){
   const data = {
       labels: labelsI,
       datasets: [{
-          label: 'CHURN rate (%)',
+          label: titleI,
           backgroundColor: backgrC,
           borderColor: borderC,
+          borderWidth: 1.5,
           data: valuesI,
       }]
   };
@@ -18,7 +19,7 @@ function graphBar(valuesI, labelsI, backgrC, borderC, canvasID){
                   beginAtZero: true,
                   title: {
                     display: true,
-                    text: 'Cantidad de usuarios'
+                    text: 'Cantidad de clientes'
                   }
               },
               x: {
@@ -30,7 +31,8 @@ function graphBar(valuesI, labelsI, backgrC, borderC, canvasID){
           }
       }
   };
-  var ctx = document.getElementById('myChart').getContext('2d'); // 2d context
+
+  var ctx = document.getElementById(canvasID).getContext('2d'); // 2d context
 
   const myChart = new Chart(
       ctx,

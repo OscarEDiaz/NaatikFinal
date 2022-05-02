@@ -29,8 +29,8 @@ const config = {
     }
 };
 
-const myChart = new Chart(
-    document.getElementById('myChart'),
+const churnBar = new Chart(
+    document.getElementById('churnBar'),
     config
 );
 }

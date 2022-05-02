@@ -24,7 +24,7 @@ function generalView($connection){
         "Cargos totales ($)",
         "Probabilidad de abandono ($)"
     );
-
+    echo "<div class=\"churn-table-container\">";
     echo "<table class='churn'>";
 
     echo "<tr>";
@@ -86,6 +86,7 @@ function generalView($connection){
     }
 
     echo "</table>";
+    echo "</div>";
 }
 
 function churnView($connection){
@@ -146,10 +147,20 @@ function churnView($connection){
 
 function dataView($connection){
     require_once "barGraph.php";
+    // require_once "barPie.php";
+
     echo "<div>
-            <canvas id='myChart'></canvas>
+            <canvas id='churnBar'></canvas>
         </div>";
-    graphBar($connection, "myChart");
+    echo "<div>
+            <canvas id='cargosmBar'></canvas>
+        </div>";
+    echo "<div>
+            <canvas id='cargostBar'></canvas>
+        </div>";
+    graphBar($connection, "churnBar", "Histograma - CHURN rate", 'abandono', 100, 10);
+    graphBar($connection, "cargosmBar", "Histograma - Cargos mensuales", 'cargoMensual', null, 10);
+    graphBar($connection, "cargostBar", "Histograma - Cargos totales", 'cargosTotales', null, 10);
 }
 
 function intervencionView($connection){
