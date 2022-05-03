@@ -1,5 +1,4 @@
 <?php
-
 function generalView($connection){
     $headersList = array(
         "Client ID",
@@ -46,11 +45,6 @@ function generalView($connection){
                     $s = (($value) ? "Hombre" : "Mujer");
                     echo "<td class='churn-data'>".$s."</td>";
                     break;
-
-                case "esJubilado":
-                case "tienePareja":
-                case "tieneDependientes":
-                case "tieneServTelefono":
                 case "facturaElectronica":
                     $s = (($value) ? "Sí" : "No");
                     echo "<td class='churn-data'>".$s."</td>";
@@ -64,11 +58,6 @@ function generalView($connection){
                         $s = "Sin servicio de teléfono";
                     echo "<td class='churn-data'>".$s."</td>";
                     break;
-                case "seguridadEnLinea":
-                case "backupEnLinea":
-                case "proteccionDispositivo":
-                case "soporteTecnico":
-                case "streamingTV":
                 case "streamingPeliculas":
                     if($value == 0)
                         $s = "No";
@@ -142,7 +131,8 @@ function churnView($connection){
 }
 
 function dataView($connection){
-    echo "<div>
+    echo 
+        "<div>
             <canvas id=\"myChart\"></canvas>
         </div>
         
