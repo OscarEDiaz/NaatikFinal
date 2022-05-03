@@ -146,19 +146,77 @@ function churnView($connection){
 }
 
 function dataView($connection){
+    $columnsGraphToPie = array();
+    // 
+    // $query = 
+    // "select genero, esJubilado, tienePareja, tieneDependientes, mesesComoCliente, tieneServTelefono, tieneMulLineas, internet, seguridadEnLinea, backupEnLinea, proteccionDispositivo, soporteTecnico, streamingTV, streamingPeliculas, contrato, facturaElectronica, pago from naatik_clientes natural join naatik_tipoContrato natural join naatik_tipoInternet natural join naatik_tipoPago;";
     require_once "barGraph.php";
-    // require_once "barPie.php";
-
+    require_once "pieGraph.php";
+    // genero tinyint not null,
+    // esJubilado tinyint not null,
+    // tienePareja tinyint not null,
+    // tieneDependientes tinyint not null,
+    // mesesComoCliente int not null,
+    // tieneServTelefono tinyint not null,
+    // tieneMulLineas tinyint not null,
+    // internet int not null,
+    // seguridadEnLinea tinyint not null,
+    // backupEnLinea tinyint not null,
+    // proteccionDispositivo tinyint not null,
+    // soporteTecnico tinyint not null,
+    // streamingTV tinyint not null,
+    // streamingPeliculas tinyint not null,
+    // contrato int not null,
+    // facturaElectronica tinyint not null,
+    // pago int not null,
+    // abandono decimal(5, 2) not null,
+    // echo "<canvas id='churnBar'></canvas>";
     echo "<div class ='leftContent'>
-            <canvas id='churnBar'></canvas>
             <canvas id='cargosmBar'></canvas>
+
+            <canvas id='generoPie'></canvas>
+            <canvas id='jubiladoPie'></canvas>
+            <canvas id='parejaPie'></canvas>
+            <canvas id='dependientesPie'></canvas>
+            <canvas id='telefonoPie'></canvas>
+            <canvas id='lineasPie'></canvas>
+            <canvas id='internetPie'></canvas>
+            <canvas id='seguridadPie'></canvas>
+
         </div>";
     echo "<div class ='rightContent'>
             <canvas id='cargostBar'></canvas>
+
+            <canvas id='backupPie'></canvas>
+            <canvas id='proteccionPie'></canvas>
+            <canvas id='soportePie'></canvas>
+            <canvas id='tvPie'></canvas>
+            <canvas id='peliculasPie'></canvas>
+            <canvas id='contratoPie'></canvas>
+            <canvas id='facturaPie'></canvas>
+            <canvas id='pagoPie'></canvas>
         </div>";
-    graphBar($connection, "churnBar", "Histograma - CHURN rate", 'abandono', 'Rango de % de abandono', 'Cantidad de clientes', 100, 10);
+    // graphBar($connection, "churnBar", "Histograma - CHURN rate", 'abandono', 'Rango de % de abandono', 'Cantidad de clientes', 100, 10);
     graphBar($connection, "cargosmBar", "Histograma - Cargos mensuales", 'cargoMensual', 'Rango de cargo mensual ($)', 'Cantidad de clientes', null, 5);
     graphBar($connection, "cargostBar", "Histograma - Cargos totales", 'cargosTotales', 'Rango de cargos todales ($)', 'Cantidad de clientes', null, 5);
+    
+    graphPie($connection, 'genero', 'generoPie');
+    graphPie($connection, 'esJubilado', 'jubiladoPie');
+    graphPie($connection, 'tienePareja', 'parejaPie');
+    graphPie($connection, 'tieneDependientes', 'dependientesPie');
+    graphPie($connection, 'tieneServTelefono', 'telefonoPie');
+    graphPie($connection, 'tieneMulLineas', 'lineasPie');
+    graphPie($connection, 'internet', 'internetPie');
+    graphPie($connection, 'seguridadEnLinea', 'seguridadPie');
+    graphPie($connection, 'backupEnLinea', 'backupPie');
+    graphPie($connection, 'proteccionDispositivo', 'proteccionPie');
+    graphPie($connection, 'soporteTecnico', 'soportePie');
+    graphPie($connection, 'streamingTV', 'tvPie');
+    graphPie($connection, 'streamingPeliculas', 'peliculasPie');
+    graphPie($connection, 'contrato', 'contratoPie');
+    graphPie($connection, 'facturaElectronica', 'facturaPie');
+    graphPie($connection, 'pago', 'pagoPie');
+
 }
 
 function intervencionView($connection){
