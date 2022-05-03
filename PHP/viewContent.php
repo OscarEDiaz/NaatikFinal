@@ -25,8 +25,8 @@ function generalView($connection){
         "Probabilidad de abandono ($)"
     );
 
-    echo "<form action=\"churn.php?selectedTable=General\" method=\"POST\">
-            <label for=\"sortby\">Ordenar por</label>
+    echo "<form action='churn.php?selectedTable=General' method='POST' class=>
+            <label for='sortby'>Ordenar por</label>
             <select id='sortby' onchange='this.form.submit()' name='sorting'>";
     
     $sortingInp = isset($_POST['sorting']) ? $_POST['sorting'] : 1;
