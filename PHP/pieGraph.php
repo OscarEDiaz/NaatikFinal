@@ -3,12 +3,12 @@
 
     function randomColors($n){
         $colors = array(
-            "'rgb(236, 157, 39)'",
-            "'rgb(132, 191, 74)'",
-            "'rgb(232, 50, 83)'",
+            "'rgb(8, 7, 92)'",
+            "'rgb(7, 63, 136)'",
+            "'rgb(0, 181, 214)'",
             "'rgb(0, 152, 142 )'",
-            "'rgb(67, 99, 188)'",
-            "'rgb(68, 160, 239)'"
+            "'rgb(76, 182, 155)'",
+            "'rgb(67, 99, 188)'"
         );
 
         $selected = array();
@@ -25,7 +25,6 @@
             $colorsJS = $colorsJS . $color . ', ';
         }
         $colorsJS = $colorsJS . ']';
-
         return $colorsJS;
     }
     function graphPie($connection, $column, $canvasID){

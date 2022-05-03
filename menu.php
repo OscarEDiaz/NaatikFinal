@@ -1,6 +1,7 @@
 <?php
-    if (!isset($_SESSION['userID'])) {
-        // header('Location: index.php');
+    session_start();
+    if (!isset($_SESSION['email'])) {
+        header('Location: index.php');
     }
 ?>
 
@@ -23,7 +24,15 @@
                 <img src="imgs/naatik-logo.png" alt="Logo Naatik" class="naatik-logo">
                 <h1 class="menu-nav-h1">Naatik</h1>
             </div>
-            <a href="" class="logout">Cerrar sesión</a>
+            <form class="logout" action="menu.php" method="POST">
+                <button name="closeSesion" type="submit">Cerrar sesión</button>
+            </form>
+            <?php
+                if(isset($_POST['closeSesion'])){
+                    session_destroy();
+                    header("Location: index.php");
+                }
+            ?>
         </div>
     </nav>
     <section class="main-menu">

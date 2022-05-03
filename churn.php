@@ -1,4 +1,9 @@
 <?php
+    session_start();
+    if (!isset($_SESSION['email'])) {
+        header('Location: index.php');
+    }
+
     require_once "PHP/credentials.php";
     $GLOBALS['connection'] = new PDO("mysql:host=localhost;dbname=".$credentialsRoot['DBName'], $credentialsRoot['DBUser'], $credentialsRoot['DBPass'],
     array(
@@ -38,7 +43,15 @@
                 </a>
                 <h1 class="menu-nav-h1">Naatik</h1>
             </div>
-            <a href="" class="logout">Cerrar sesión</a>
+            <form class="logout" action="menu.php" method="POST">
+                <button name="closeSesion" type="submit">Cerrar sesión</button>
+            </form>
+            <?php
+                if(isset($_POST['closeSesion'])){
+                    session_destroy();
+                    header("Location: index.php");
+                }
+            ?>
         </div>
     </nav>
     <section class="main-database" id="maindb">

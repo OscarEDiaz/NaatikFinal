@@ -147,56 +147,48 @@ function churnView($connection){
 
 function dataView($connection){
     $columnsGraphToPie = array();
-    // 
-    // $query = 
-    // "select genero, esJubilado, tienePareja, tieneDependientes, mesesComoCliente, tieneServTelefono, tieneMulLineas, internet, seguridadEnLinea, backupEnLinea, proteccionDispositivo, soporteTecnico, streamingTV, streamingPeliculas, contrato, facturaElectronica, pago from naatik_clientes natural join naatik_tipoContrato natural join naatik_tipoInternet natural join naatik_tipoPago;";
+
     require_once "barGraph.php";
     require_once "pieGraph.php";
-    // genero tinyint not null,
-    // esJubilado tinyint not null,
-    // tienePareja tinyint not null,
-    // tieneDependientes tinyint not null,
-    // mesesComoCliente int not null,
-    // tieneServTelefono tinyint not null,
-    // tieneMulLineas tinyint not null,
-    // internet int not null,
-    // seguridadEnLinea tinyint not null,
-    // backupEnLinea tinyint not null,
-    // proteccionDispositivo tinyint not null,
-    // soporteTecnico tinyint not null,
-    // streamingTV tinyint not null,
-    // streamingPeliculas tinyint not null,
-    // contrato int not null,
-    // facturaElectronica tinyint not null,
-    // pago int not null,
-    // abandono decimal(5, 2) not null,
-    // echo "<canvas id='churnBar'></canvas>";
-    echo "<div class ='leftContent'>
-            <canvas id='cargosmBar'></canvas>
 
-            <canvas id='generoPie'></canvas>
-            <canvas id='jubiladoPie'></canvas>
-            <canvas id='parejaPie'></canvas>
-            <canvas id='dependientesPie'></canvas>
-            <canvas id='telefonoPie'></canvas>
-            <canvas id='lineasPie'></canvas>
-            <canvas id='internetPie'></canvas>
-            <canvas id='seguridadPie'></canvas>
+    // echo "<div>";
+    // echo "<div>
+    //         <canvas id='churnBar'></canvas>
+    //       </div>";
+
+    echo "<div class ='leftContent'>
+            <div style='height: 400px'>
+            <canvas class='barGraph' id='cargosmBar'></canvas>
+            </div>
+
+            <canvas class='pieGraph' id='generoPie'></canvas>
+            <canvas class='pieGraph' id='jubiladoPie'></canvas>
+            <canvas class='pieGraph' id='parejaPie'></canvas>
+            <canvas class='pieGraph' id='dependientesPie'></canvas>
+            <canvas class='pieGraph' id='telefonoPie'></canvas>
+            <canvas class='pieGraph' id='lineasPie'></canvas>
+            <canvas class='pieGraph' id='internetPie'></canvas>
+            <canvas class='pieGraph' id='seguridadPie'></canvas>
 
         </div>";
     echo "<div class ='rightContent'>
-            <canvas id='cargostBar'></canvas>
+            <div style='height: 400px'>
+            <canvas class='barGraph' id='cargostBar'></canvas>
+            </div>
 
-            <canvas id='backupPie'></canvas>
-            <canvas id='proteccionPie'></canvas>
-            <canvas id='soportePie'></canvas>
-            <canvas id='tvPie'></canvas>
-            <canvas id='peliculasPie'></canvas>
-            <canvas id='contratoPie'></canvas>
-            <canvas id='facturaPie'></canvas>
-            <canvas id='pagoPie'></canvas>
+            <canvas class='pieGraph' id='backupPie'></canvas>
+            <canvas class='pieGraph' id='proteccionPie'></canvas>
+            <canvas class='pieGraph' id='soportePie'></canvas>
+            <canvas class='pieGraph' id='tvPie'></canvas>
+            <canvas class='pieGraph' id='peliculasPie'></canvas>
+            <canvas class='pieGraph' id='contratoPie'></canvas>
+            <canvas class='pieGraph' id='facturaPie'></canvas>
+            <canvas class='pieGraph' id='pagoPie'></canvas>
         </div>";
-    // graphBar($connection, "churnBar", "Histograma - CHURN rate", 'abandono', 'Rango de % de abandono', 'Cantidad de clientes', 100, 10);
+    echo "</div>";
+    // echo "</div>";
+    
+    graphBar($connection, "churnBar", "Histograma - CHURN rate", 'abandono', 'Rango de % de abandono', 'Cantidad de clientes', 100, 10);
     graphBar($connection, "cargosmBar", "Histograma - Cargos mensuales", 'cargoMensual', 'Rango de cargo mensual ($)', 'Cantidad de clientes', null, 5);
     graphBar($connection, "cargostBar", "Histograma - Cargos totales", 'cargosTotales', 'Rango de cargos todales ($)', 'Cantidad de clientes', null, 5);
     

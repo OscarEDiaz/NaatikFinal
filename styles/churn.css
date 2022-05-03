@@ -216,3 +216,11 @@ body {
     width: 50%;
     padding-left: 30px;
 }
+
+.pieGraph{
+    padding: 30px;
+}
+
+.barGraph{
+    height: 50px;
+}

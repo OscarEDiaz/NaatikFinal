@@ -28,7 +28,8 @@ function graphBar(valuesI, labelsI, backgrC, borderC, canvasID, titleI, xLabel, 
                   text: xLabel
                 }
             }
-          }
+          },
+          maintainAspectRatio: false,
       }
   };
 

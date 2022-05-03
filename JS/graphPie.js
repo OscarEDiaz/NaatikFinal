@@ -20,7 +20,8 @@ const config = {
                 display: true,
                 text: title
             }
-        }
+        },
+        responsive: true
     }
 };
 

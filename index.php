@@ -25,6 +25,8 @@
             
             if($contrasena == $passwordInp){
                 header("Location: menu.php");
+                session_start();
+                $_SESSION['email'] = $emailInp;
             } else{
                 $contrasenaIncorrecta = true;
             }
