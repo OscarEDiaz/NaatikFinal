@@ -1,13 +1,15 @@
 <?php
-    $credentialsRoot = array(
+    $credentials = array(
+        array(
         'DBName' => "2005B_07",
         'DBUser' => "root",
         'DBPass' => 'cacadevaca'
-    );
-
-    $credentialsOscar = array(
+        ),
+        array(
         'DBName' => "Naatik",
         'DBUser' => "Oscar",
         'DBPass' => 'oscar123'
-    );
+        ));
+
+    $credential = $credentials[0];
 ?>
