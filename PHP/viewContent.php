@@ -24,6 +24,22 @@ function generalView($connection){
         "Cargos totales ($)",
         "Probabilidad de abandono ($)"
     );
+
+    echo "<form action=\"churn.php?selectedTable=General\" method=\"POST\">
+            <label for=\"sortby\">Ordenar por</label>
+            <select id='sortby' onchange='this.form.submit()' name='sorting'>";
+    
+    $sortingInp = isset($_POST['sorting']) ? $_POST['sorting'] : 1;
+
+    echo "<option value='1'"; if($sortingInp == 1) echo "selected"; echo "> Client ID - Menor a mayor</option>";
+    echo "<option value='2'"; if($sortingInp == 2) echo "selected"; echo "> Client ID - Mayor a menor</option>";
+    echo "<option value='3'"; if($sortingInp == 3) echo "selected"; echo "> Churn rate - Menor a mayor</option>";
+    echo "<option value='4'"; if($sortingInp == 4) echo "selected"; echo "> Churn rate - Mayor a menor</option>";
+    echo "</select>
+        <noscript><input type='submit' value='Submit'></noscript>
+        </form>";
+            
+
     echo "<div class=\"churn-table-container\">";
     echo "<table class='churn'>";
 
@@ -33,8 +49,24 @@ function generalView($connection){
         }
     echo "</tr>";
 
+    $sortingSelected = (isset($_POST['sorting'])) ? $_POST['sorting'] : 1;
+    switch($sortingSelected){
+        case 1:
+            $sqlSort = "order by idCliente";
+            break;
+        case 2:
+            $sqlSort = "order by idCliente desc";
+            break;
+        case 3:
+            $sqlSort = "order by abandono";
+            break;
+        case 4:
+            $sqlSort = "order by abandono desc";
+            break;
+    }
+
     $query = 
-        "select idCliente, genero, esJubilado, tienePareja, tieneDependientes, mesesComoCliente, tieneServTelefono, tieneMulLineas, internet, seguridadEnLinea, backupEnLinea, proteccionDispositivo, soporteTecnico, streamingTV, streamingPeliculas, contrato, facturaElectronica, pago, cargoMensual, cargosTotales, abandono from naatik_clientes natural join naatik_tipoContrato natural join naatik_tipoInternet natural join naatik_tipoPago;";
+        "select idCliente, genero, esJubilado, tienePareja, tieneDependientes, mesesComoCliente, tieneServTelefono, tieneMulLineas, internet, seguridadEnLinea, backupEnLinea, proteccionDispositivo, soporteTecnico, streamingTV, streamingPeliculas, contrato, facturaElectronica, pago, cargoMensual, cargosTotales, abandono from naatik_clientes natural join naatik_tipoContrato natural join naatik_tipoInternet natural join naatik_tipoPago $sqlSort;";
     $resultados = $connection -> prepare($query);
     $resultados -> execute();
     $resultados = ($resultados -> fetchAll(PDO::FETCH_ASSOC));
@@ -89,72 +121,13 @@ function generalView($connection){
     echo "</div>";
 }
 
-function churnView($connection){
-    ?>
-    <form action="churn.php?selectedTable=Churn+rate" method="POST">
-        <label for="sortby">Ordenar por</label>
-        <select id='sortby' onchange='this.form.submit()' name='sorting'>
-            <?php 
-                $sortingInp = isset($_POST['sorting']) ? $_POST['sorting'] : 1;
-            ?>
-            <option value="1" <?php if($sortingInp == 1) echo "selected";?>>Client ID - Menor a mayor</option>
-            <option value="2" <?php if($sortingInp == 2) echo "selected";?>>Client ID - Mayor a menor</option>
-            <option value="3" <?php if($sortingInp == 3) echo "selected";?>>Churn rate - Menor a mayor</option>
-            <option value="4" <?php if($sortingInp == 4) echo "selected";?>>Churn rate - Mayor a menor</option>
-        </select>
-        <noscript><input type="submit" value="Submit"></noscript>
-    </form>
-    <div class="churn-table-container">
-    <table class='churn'>
-        <tr>
-            <th class='churn-header'> Client ID </th>
-            <th class='churn-header'> % de Abandono </th>
-        </tr>
-
-    <?php
-    $sortingSelected = (isset($_POST['sorting'])) ? $_POST['sorting'] : 1;
-    switch($sortingSelected){
-        case 1:
-            $sqlSort = "order by idCliente";
-            break;
-        case 2:
-            $sqlSort = "order by idCliente desc";
-            break;
-        case 3:
-            $sqlSort = "order by abandono";
-            break;
-        case 4:
-            $sqlSort = "order by abandono desc";
-            break;
-    }
-    $query = "select idCliente, abandono from naatik_clientes $sqlSort";
-    $resultados = $connection -> prepare($query);
-    $resultados -> execute();
-    $resultados = $resultados -> fetchAll(PDO::FETCH_ASSOC);
-
-    foreach($resultados as $resultado){
-        echo "<tr>";
-        foreach($resultado as $key => $value){
-            echo "<td class='churn-data'> $value </td>"; 
-        }
-        echo "</tr>";
-    }
-    ?>
-    </table>
-    </div>
-    <?php
-}
-
 function dataView($connection){
     $columnsGraphToPie = array();
 
     require_once "barGraph.php";
     require_once "pieGraph.php";
 
-    // echo "<div>";
-    // echo "<div>
     //         <canvas id='churnBar'></canvas>
-    //       </div>";
 
     echo "<div class ='leftContent'>
             <div style='height: 400px'>

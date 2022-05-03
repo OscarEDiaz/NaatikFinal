@@ -15,7 +15,6 @@
 
     $optNames = array(
         "General",
-        "Churn rate",
         "Visualización de datos",
         "Métodos de intervención"
     );
@@ -79,9 +78,6 @@
                         switch($currentTable){
                             case "General":
                                 generalView($connection);
-                                break;
-                            case "Churn rate":
-                                churnView($connection);
                                 break;
                             case "Visualización de datos":
                                 dataView($connection);
