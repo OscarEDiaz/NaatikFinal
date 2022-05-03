@@ -1,4 +1,9 @@
 <?php
+    session_start();
+    if (!isset($_SESSION['email'])) {
+        header('Location: index.php');
+    }
+
     require_once "PHP/credentials.php";
     $GLOBALS['connection'] = new PDO("mysql:host=localhost;dbname=".$credentialsOscar['DBName'], $credentialsOscar['DBUser'], $credentialsOscar['DBPass'],
     array(
@@ -10,7 +15,6 @@
 
     $optNames = array(
         "General",
-        "Churn rate",
         "Visualización de datos",
         "Métodos de intervención"
     );
@@ -38,7 +42,15 @@
                 </a>
                 <h1 class="menu-nav-h1">Naatik</h1>
             </div>
-            <a href="" class="logout">Cerrar sesión</a>
+            <form class="logout" action="menu.php" method="POST">
+                <button name="closeSesion" type="submit">Cerrar sesión</button>
+            </form>
+            <?php
+                if(isset($_POST['closeSesion'])){
+                    session_destroy();
+                    header("Location: index.php");
+                }
+            ?>
         </div>
     </nav>
     <section class="main-database" id="maindb">
@@ -60,29 +72,27 @@
                 <?php
                     $currentTable = (isset($_GET['selectedTable'])) ? $_GET['selectedTable'] : "General";
                 ?>
-                <div class="churn-container">
-                    <div class="churn-table-container">
-                        <?php 
-                            require_once "PHP/viewContent.php";
-                            switch($currentTable){
-                                case "General":
+                    <?php 
+                        require_once "PHP/viewContent.php";
+                        switch($currentTable){
+                            case "General":
+                                echo "<div class='churn-container'>";
                                     generalView($connection);
-                                    break;
-                                case "Churn rate":
-                                    churnView($connection);
-                                    break;
+                                echo "</div>";
+                                break;
                                 case "Visualización de datos":
+                                echo "<div class='data-container'>";
                                     dataView($connection);
-                                    break;
-                                case "Métodos de intervención":
-                                    echo "aún no :(";
-                                    echo "<br>";
-                                    intervencionView($connection);
-                                    break;
-                            }
-                        ?>
-                    </div>
-                </div>
+                                echo "</div>";
+                                break;
+                            case "Métodos de intervención":
+                                echo "aún no :(";
+                                echo "<br>";
+                                intervencionView($connection);
+                                break;
+                        }
+                    ?>
+                
             </div>
         </div>
     </section>

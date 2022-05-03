@@ -2,7 +2,7 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-    font-family: Lato;
+    font-family: 'Lato';
 }
 
 body {
@@ -178,12 +178,35 @@ body {
     height: 80%;
     width: 90%;
     overflow: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.data-container {
+    height: 80%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.churn-data-bar-main {
+    display: flex;
+    flex-shrink: 0;
+    width: 100%;
+    height: 400px;
+}
+
+.churn-data-bar {
+    width: 100%;
+    display: flex;
 }
 
 .churn-table-container {
     border: 1px solid #999;
     border-radius: 10px;
     overflow: auto;
+    width: fit-content;
 }
 
 .churn {
@@ -203,4 +226,20 @@ body {
     padding: 10px;
     text-align: center;
     border: 1px solid rgb(216, 216, 216);
+}
+
+.leftContent{
+    height: 400px;
+    width: 50%;
+    padding-right: 30px;
+}
+
+.rightContent{
+    height: 400px;
+    width: 50%;
+    padding-left: 30px;
+}
+
+.pieGraph{
+    padding: 30px;
 }
