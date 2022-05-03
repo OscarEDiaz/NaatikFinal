@@ -18,16 +18,6 @@
     justify-content: center;
 }
 
-.menu-nav::after {
-    content: '';
-    height: 1px;
-    background-color: #0077B6;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-}
-
 .menu-nav-main {
     width: 80%;
     display: flex;
@@ -71,7 +61,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    height: 85vh;
+    min-height: 85vh;
 }
 
 .svg-logout {
@@ -100,7 +90,8 @@
 
 
 .card {
-    width: calc(100% / 3);
+    width: calc(30%);
+    height: 300px;
     color: #fff;
     background-size: cover;
     display: flex;
@@ -178,4 +169,17 @@
 
 .card-body {
     margin-bottom: 15px;
+}
+
+@media screen and (max-width: 844px) {
+    .cards-container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card {
+        width: 80%;
+        margin-top: 20px;
+    }
 }

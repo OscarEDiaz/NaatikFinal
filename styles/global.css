@@ -1,0 +1,13 @@
+.end-session {
+    color: #0077B6;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 200ms ease;
+}
+
+.end-session:hover,
+.end-session:focus {
+    letter-spacing: 1px;
+    color: rgb(255, 43, 43);
+}

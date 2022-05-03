@@ -12,6 +12,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/menu.css">
+    <link rel="stylesheet" href="styles/global.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet"> 
@@ -25,7 +26,7 @@
                 <h1 class="menu-nav-h1">Naatik</h1>
             </div>
             <form class="logout" action="menu.php" method="POST">
-                <button name="closeSesion" type="submit">Cerrar sesión</button>
+                <button name="closeSesion" type="submit" class="end-session"><h2>Cerrar sesión</h2></button>
             </form>
             <?php
                 if(isset($_POST['closeSesion'])){

@@ -44,16 +44,6 @@ body {
     color: #0077B6;
 }
 
-.logout {
-    text-decoration: none;
-    color: #00B4D8;
-}
-
-.logout:hover,
-.logout:focus {
-    color: rgb(255, 43, 43);
-}
-
 .naatik-logo {
     margin-right: 5px;
     width: 24px;
@@ -174,6 +164,21 @@ body {
     align-items: flex-end;
 }
 
+.select-form {
+    padding-bottom: 15px;
+}
+
+.sort-header {
+    color: #0077B6;
+    text-align: end;
+    margin-bottom: 10px;
+}
+
+.select-sort {
+    border: none;
+    padding: 10px 10px 10px 10px;
+}
+
 .churn-container {
     height: 80%;
     width: 90%;
@@ -204,8 +209,8 @@ body {
 
 .churn-table-container {
     border: 1px solid #999;
+    overflow: hidden;
     border-radius: 10px;
-    overflow: auto;
     width: fit-content;
 }
 

@@ -24,29 +24,32 @@ function generalView($connection){
         "Probabilidad de abandono ($)"
     );
 
-    echo "<form action='churn.php?selectedTable=General' method='POST' class='churn-options'>
-            <label for='sortby'>Ordenar por</label>
-            <select id='sortby' onchange='this.form.submit()' name='sorting'>";
-    
+    echo "<div class='select-form'>"; 
+        echo "<form action='churn.php?selectedTable=General' method='POST' class='churn-options'>
+                <h2 class='sort-header'>Ordernar por</h2>
+                <select id='sortby' onchange='this.form.submit()' name='sorting' class='select-sort'>";
+        
     $sortingInp = isset($_POST['sorting']) ? $_POST['sorting'] : 1;
 
-    echo "<option value='1'"; if($sortingInp == 1) echo "selected"; echo "> Client ID - Menor a mayor</option>";
-    echo "<option value='2'"; if($sortingInp == 2) echo "selected"; echo "> Client ID - Mayor a menor</option>";
-    echo "<option value='3'"; if($sortingInp == 3) echo "selected"; echo "> Churn rate - Menor a mayor</option>";
-    echo "<option value='4'"; if($sortingInp == 4) echo "selected"; echo "> Churn rate - Mayor a menor</option>";
-    echo "</select>
-        <noscript><input type='submit' value='Submit'></noscript>
+                    echo "<option value='1'"; if($sortingInp == 1) echo "selected"; echo "> Client ID - Menor a mayor</option>";
+                    echo "<option value='2'"; if($sortingInp == 2) echo "selected"; echo "> Client ID - Mayor a menor</option>";
+                    echo "<option value='3'"; if($sortingInp == 3) echo "selected"; echo "> Churn rate - Menor a mayor</option>";
+                    echo "<option value='4'"; if($sortingInp == 4) echo "selected"; echo "> Churn rate - Mayor a menor</option>";
+                echo "</select>
+                <noscript><input type='submit' value='Submit'></noscript>
         </form>";
+    echo "</div>";
             
+    echo "<div class='churn-container'>";
 
     echo "<div class=\"churn-table-container\">";
-    echo "<table class='churn'>";
+        echo "<table class='churn'>";
 
-    echo "<tr>";
-        foreach($headersList as $header){
-            echo "<th class='churn-header'> $header </th>";
-        }
-    echo "</tr>";
+            echo "<tr>";
+                foreach($headersList as $header){
+                    echo "<th class='churn-header'> $header </th>";
+                }
+            echo "</tr>";
 
     $sortingSelected = (isset($_POST['sorting'])) ? $_POST['sorting'] : 1;
     switch($sortingSelected){
@@ -106,7 +109,8 @@ function generalView($connection){
         echo "</tr>";
     }
 
-    echo "</table>";
+        echo "</table>";
+    echo "</div>";
     echo "</div>";
 }
 

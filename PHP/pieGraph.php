@@ -51,7 +51,7 @@
         if($values == array(0, 1))
         $labels = ($column == "genero") ? array('Mujer', 'Hombre') : array('No', 'Sí');
         elseif($values == array(0, 1, 2))
-        $labels = array('No', 'Sí', 'Sin servicio');
+        $labels = array('No', 'Sí', 'Sins servicio');
         else{
             $labels = array();
             foreach($values as $value){
@@ -75,7 +75,7 @@
 
         $splitCammel = preg_split('/(?=[A-Z])/', strval($column));
         $title = join(" ", $splitCammel);
-        echo "<script src='JS/graphPie.js'> </script>";
+        echo "<script src='JS/graphPie.js'></script>";
         echo "<script> graphPie('$canvasID', $dataJS, $labelsJS, $colorsJS, '$title') </script>";
     }
 ?>
