@@ -9,7 +9,8 @@
         'DBName' => "Naatik",
         'DBUser' => "Oscar",
         'DBPass' => 'oscar123'
-        ));
+        )
+    );
 
     $credential = $credentials[0];
 ?>

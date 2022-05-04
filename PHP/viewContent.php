@@ -72,6 +72,11 @@ function generalView($connection){
     $resultados = $connection -> prepare($query);
     $resultados -> execute();
     $resultados = ($resultados -> fetchAll(PDO::FETCH_ASSOC));
+    $internetService = array(
+        0 => "No",
+        1 => "Sí",
+        2 => "Sin servicio de Internet"
+    );
     foreach ($resultados as $resultado) {
         echo "<tr>";
         foreach ($resultado as $key => $value){
@@ -81,6 +86,9 @@ function generalView($connection){
                     echo "<td class='churn-data'>".$s."</td>";
                     break;
                 case "facturaElectronica":
+                case "esJubilado":
+                case "tienePareja":
+                case "tieneDependientes":
                     $s = (($value) ? "Sí" : "No");
                     echo "<td class='churn-data'>".$s."</td>";
                     break;
@@ -94,14 +102,14 @@ function generalView($connection){
                     echo "<td class='churn-data'>".$s."</td>";
                     break;
                 case "streamingPeliculas":
-                    if($value == 0)
-                        $s = "No";
-                    elseif($value == 1)
-                        $s = "Sí";
-                    else
-                        $s = "Sin servicio de internet";
-                        echo "<td class='churn-data'> $s</td>";
-                        break;
+                case "seguridadEnLinea":
+                case "backupEnLinea":
+                case "proteccionDispositivo":
+                case "soporteTecnico":
+                case "streamingTV":
+                    $s = $internetService[$value];
+                    echo "<td class='churn-data'> $s</td>";
+                    break;
                 default:
                     echo "<td class='churn-data'> $value </td>";
                 }
