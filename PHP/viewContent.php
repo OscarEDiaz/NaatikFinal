@@ -89,6 +89,7 @@ function generalView($connection){
                 case "esJubilado":
                 case "tienePareja":
                 case "tieneDependientes":
+                case "tieneServTelefono":
                     $s = (($value) ? "Sí" : "No");
                     echo "<td class='churn-data'>".$s."</td>";
                     break;
