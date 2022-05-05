@@ -46,7 +46,7 @@
                 $titles = array('Churn Rate', 'Simulador', 'Contactanos');
                 $paragraphs = array('Un análisis estadístico de los perfiles de tus clientes, prevee y toma las mejores decisiones.', 'Crea perfiles específicos de tus clientes e identifica el momento oportuno para recuperar su lealtad.', '¿Hay algo en lo que te podamos ayudar? Con gusto te atenderemos');
                 $classes = array('c1', 'c2', 'c3');
-                $direcciones = array('churn.php','#','contact.php');
+                $direcciones = array('churn.php','simulador.php','contact.php');
 
                 for ($i = 0; $i < 3; $i++) {
                     echo 
