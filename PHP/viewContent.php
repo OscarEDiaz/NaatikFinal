@@ -42,7 +42,7 @@ function generalView($connection){
             
     echo "<div class='churn-container'>";
 
-    echo "<div class=\"churn-table-container\">";
+    echo "<div class='churn-table-container'>";
         echo "<table class='churn'>";
 
             echo "<tr>";
