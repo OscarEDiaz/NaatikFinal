@@ -1,3 +1,100 @@
+--                           CREACIÓN DE LA BASE DE DATOS
+CREATE Database Naatik;
+
+-- ------------------------------------------------------------------------------------
+--            Creación de la tabla "Usuario" con permisos de administrador            -
+-- ------------------------------------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS `Naatik_User` (
+  `idUser` int(10) NOT NULL AUTO_INCREMENT,
+  `email` varchar(20) DEFAULT NULL,
+  `password` varchar(20) DEFAULT NULL,
+  `adminprivs` tinyint(1) DEFAULT 0,
+  PRIMARY KEY (`idUser`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
+
+INSERT INTO `Naatik_User` VALUES
+(1, 'test@gmail.com', 'test123', 1);
+
+
+-- ------------------------------------------------------------------------------------
+-- Creación de las tablas de la base de datos de TELECO usada como ejemplo de cliente -
+-- ------------------------------------------------------------------------------------
+
+-- Tabla "naatik_tipoContrato"
+create table naatik_tipoContrato(
+    contratoID int not null,
+    contrato varchar(30),
+    primary key(contratoID)
+);
+
+-- Tabla "naatik_tipoInternet"
+create table naatik_tipoInternet(
+    internetID int not null,
+    primary key(internetID),
+    internet varchar(30) not null
+);
+
+-- Tabla "naatik_tipoPago"
+create table naatik_tipoPago(
+    pagoID int not null,
+    pago varchar(30) not null,
+    primary key(pagoID)
+);
+
+-- Tabla "naatik_clientes"
+create table naatik_clientes(
+    idCliente varchar(30) not null,
+    genero tinyint not null,
+    esJubilado tinyint not null,
+    tienePareja tinyint not null,
+    tieneDependientes tinyint not null,
+    mesesComoCliente int not null,
+    tieneServTelefono tinyint not null,
+    tieneMulLineas tinyint not null,
+    internetID int not null,
+    foreign key(internetID) references naatik_tipoInternet(internetID),
+    seguridadEnLinea tinyint not null,
+    backupEnLinea tinyint not null,
+    proteccionDispositivo tinyint not null,
+    soporteTecnico tinyint not null,
+    streamingTV tinyint not null,
+    streamingPeliculas tinyint not null,
+    contratoID int not null,
+    foreign key(contratoID) references naatik_tipoContrato(contratoID),
+    facturaElectronica tinyint not null,
+    pagoID int not null,
+    foreign key(pagoID) references naatik_tipoPago(pagoID),
+    cargoMensual decimal(8, 2) not null,
+    cargosTotales decimal(8,2) not null,
+    abandono decimal(5, 2) not null,
+    primary key(idCliente)
+);
+
+
+-- ------------------------------------------------------------------------------------
+--                      Inserts a las tablas previamente generadas                    -
+-- ------------------------------------------------------------------------------------
+
+insert into naatik_tipoContrato values
+    (1, "Mes a mes"),
+    (2, "Un año"),
+    (3, "Dos años");
+
+insert into naatik_tipoPago values
+    (1, "Tarjeta de crédito"),
+    (2, "Transferencia bancaria"),
+    (3, "Cheque electrónico"),
+    (4, "Cheque por correo");
+    
+insert into naatik_tipoInternet values
+(0, "No"),
+(1, "DSL"),
+(2, "Fibra óptica");
+
+
+-- Insert obtenido del archivo churn_test.csv a través de csvToQueries.py
+-- Contiene más de mil registros de usuarios
 insert into naatik_clientes values
 ("8404-FYDIB",1,0,0,0,26,1,1,2,1,1,0,0,0,0,1,1,1,86.65,2208.75,5.27),
 ("2091-MJTFX",0,0,1,1,30,0,2,1,0,0,0,1,1,1,1,0,1,51.2,1561.5,81.96),
