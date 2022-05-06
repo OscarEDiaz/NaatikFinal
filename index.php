@@ -24,9 +24,12 @@
             $contrasena = $usuarioQuery['password'];
             
             if($contrasena == $passwordInp){
-                header("Location: menu.php");
                 session_start();
                 $_SESSION['email'] = $emailInp;
+                $isAdmin = $usuarioQuery['adminprivs'] == 1 ? true : false;
+                $_SESSION['isAdmin'] = $isAdmin;
+
+                $isAdmin ? header("Location: adminPage.php") : header("Location: menu.php");
             } else{
                 $contrasenaIncorrecta = true;
             }

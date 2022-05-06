@@ -17,11 +17,7 @@ function graphSemiCircle(percentage){
         step: (state, bar) => {
             bar.path.setAttribute('stroke', state.color);
             var value = Math.round(bar.value() * 100);
-            if (value === 0) {
-                bar.setText('');
-            } else {
-                bar.setText(value + ' %');
-            }
+            bar.setText(value + ' %');
             bar.text.style.color = state.color;
         }
     });

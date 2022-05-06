@@ -21,7 +21,7 @@ function generalView($connection){
         "Metodo pago",
         "Cargo mensual ($)",
         "Cargos totales ($)",
-        "Probabilidad de abandono ($)"
+        "Probabilidad de abandono (%)"
     );
 
     echo "<div class='select-form'>"; 
@@ -31,11 +31,11 @@ function generalView($connection){
         
     $sortingInp = isset($_POST['sorting']) ? $_POST['sorting'] : 1;
 
-                    echo "<option value='1'"; if($sortingInp == 1) echo "selected"; echo "> Client ID - Menor a mayor</option>";
-                    echo "<option value='2'"; if($sortingInp == 2) echo "selected"; echo "> Client ID - Mayor a menor</option>";
-                    echo "<option value='3'"; if($sortingInp == 3) echo "selected"; echo "> Churn rate - Menor a mayor</option>";
-                    echo "<option value='4'"; if($sortingInp == 4) echo "selected"; echo "> Churn rate - Mayor a menor</option>";
-                echo "</select>
+    echo "<option value='1'"; if($sortingInp == 1) echo "selected"; echo "> Client ID - Menor a mayor</option>";
+    echo "<option value='2'"; if($sortingInp == 2) echo "selected"; echo "> Client ID - Mayor a menor</option>";
+    echo "<option value='3'"; if($sortingInp == 3) echo "selected"; echo "> Churn rate - Menor a mayor</option>";
+    echo "<option value='4'"; if($sortingInp == 4) echo "selected"; echo "> Churn rate - Mayor a menor</option>";
+    echo "</select>
                 <noscript><input type='submit' value='Submit'></noscript>
         </form>";
     echo "</div>";
