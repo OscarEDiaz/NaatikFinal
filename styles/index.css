@@ -109,7 +109,6 @@
 .login-headers {
     width: 80%;
     margin-left: 40px;
-    
 }
 
 .login-h {
@@ -252,4 +251,14 @@
 .login-submit:hover {
     box-shadow: inset 0px 0px 0px 3px #CAF0F8;
     background-color: transparent;
+}
+
+@media screen and (max-width: 844px) {
+    .login-header {
+        display: none;
+    }
+
+    .login-form-section {
+        width: 100%;
+    }
 }

@@ -1,7 +1,93 @@
-h4{
-    padding-top: 20px;
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
 }
 
-form{
-    text-align: center;
+h4 {
+    display: inline-block;
+    width: 100%;
+    padding: 5px;
+    background-color: #0077B6;
+    color: #fff;
+}
+
+.simulator-main {
+    overflow: hidden;
+    height: 85vh;
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+}
+
+label {
+    cursor: pointer;
+    padding-left: 10px;
+    transition: color 300ms ease;
+}
+
+label:hover{
+    color: rgb(103, 249, 113);
+}
+
+.simulator-form {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    align-items: flex-start;
+    width: 50%;
+}
+
+.formleft {
+    width: 80%;
+    height: 100%;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.formright {
+    padding-left: 10px;
+    width: 20%;
+    height: 100%;
+}
+
+.sim-subm {
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(151, 249, 158);
+    color: rgb(42, 118, 47);
+    width: 100%;
+    height: 100%;
+    transition: all 500ms ease;
+    cursor: pointer;
+}
+
+.sim-subm:focus,
+.sim-subm:hover {
+    background-color: rgb(90, 249, 101);
+}
+
+.label {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+}
+
+.simulator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 10%;
+    width: 60%;
+    bottom: 10%;
+}
+
+input[type="number"] {
+    width: 100%;
 }
