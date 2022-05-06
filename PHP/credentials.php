@@ -9,8 +9,14 @@
         'DBName' => "Naatik",
         'DBUser' => "Oscar",
         'DBPass' => 'oscar123'
+        ),
+        array(
+        'DBName' => "Naatik",
+        'DBUser' => "Dragko",
+        'DBPass' => 'Pg$HdZz0A@wF'
+
         )
     );
 
-    $credential = $credentials[0];
+    $credential = $credentials[2];
 ?>
