@@ -18,5 +18,9 @@
         )
     );
 
+<<<<<<< HEAD
     $credential = $credentials[0];
+=======
+    $credential = $credentials[2];
+>>>>>>> 75eb047939f70e9eb28bcbfc1a060ee9a0624828
 ?>
