@@ -3,7 +3,6 @@
     padding: 0px;
     box-sizing: border-box;
     font-family: 'Lato';
-    background-color: rgb(1, 48, 70);
 }
 
 .menu-nav {
@@ -70,4 +69,12 @@
 
 h2{
     background-color: white;
+}
+
+.main {
+    height: 94vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

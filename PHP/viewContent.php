@@ -192,11 +192,12 @@ function dataView($connection){
 }
 
 function intervencionView($connection){
-    echo "<form action=\"churn.php?selectedTable=Métodos+de+intervención\" method=\"POST\">
+    echo "<form action=\"churn.php?selectedTable=Métodos+de+intervención\" method=\"POST\" class='form-view'>
+        <h1 class='form-header'>Envio de correo</h1>
         <input name=\"minAb\" type='number' max='100' min='0'>
         <input name=\"maxAb\" type='number' max='100' min='0'>
         <textarea name=\"mensaje\" maxlength='250' name='' id='' cols='30' rows='10'></textarea>
-        <input name='sub' type=\"submit\" value=\"Agregar\">
+        <input name='sub' type=\"submit\" value=\"Agregar\" class='input-form'>
     </form>";
     if(isset($_POST['sub'])){
         $min = $_POST['minAb'];

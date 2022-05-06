@@ -27,7 +27,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/index.css">
     <link rel="stylesheet" href="styles/adminpage.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet"> 
     <title>Admin Page</title>
 </head>
 <body>
@@ -48,29 +52,31 @@
             ?>
         </div>
     </nav>
-<table>
-    <thead>
-        <tr>
-            <th>User ID</th>
-            <th>email</th>
-        </tr>
-    </thead>
-    <tbody>
-    <?php
-    foreach($users as $user){
-        $idUser = $user['idUser'];
-        $email = $user['email'];
-        echo "<tr>";
-        echo "<td>" . $idUser . "</td>";
-        echo "<td>" . $email . "</td>";
-        echo "<td> 
-                <a href='newPass.php?em=$email'> <button> Cambiar contraseña </button>  </a>
-                <a href='adminPage.php?del=$email'> <button> Eliminar usuario </button>  </a>
-            </td>";
-        echo "</tr>";
-    } 
-    ?> 
-    </tbody>
-    </table>
+<section class="main">
+    <table>
+        <thead>
+            <tr>
+                <th>User ID</th>
+                <th>email</th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php
+        foreach($users as $user){
+            $idUser = $user['idUser'];
+            $email = $user['email'];
+            echo "<tr>";
+            echo "<td>" . $idUser . "</td>";
+            echo "<td>" . $email . "</td>";
+            echo "<td> 
+                    <a href='newPass.php?em=$email'> <button> Cambiar contraseña </button>  </a>
+                    <a href='adminPage.php?del=$email'> <button> Eliminar usuario </button>  </a>
+                </td>";
+            echo "</tr>";
+        } 
+        ?> 
+        </tbody>
+        </table>
+</section>
 </body>
 </html>
