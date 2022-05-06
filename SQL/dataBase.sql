@@ -71,6 +71,12 @@ create table naatik_clientes(
     primary key(idCliente)
 );
 
+create table intervenciones(
+    abandonoMayor decimal(4,2) not null,
+    abandonoMenor decimal(4,2) not null,
+    mensaje varchar(250)
+);
+
 
 -- ------------------------------------------------------------------------------------
 --                      Inserts a las tablas previamente generadas                    -
