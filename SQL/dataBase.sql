@@ -74,7 +74,7 @@ create table naatik_clientes(
 create table intervenciones(
     abandonoMayor decimal(4,2) not null,
     abandonoMenor decimal(4,2) not null,
-    mensaje varchar(250)
+    mensaje varchar(250) not null
 );
 
 
