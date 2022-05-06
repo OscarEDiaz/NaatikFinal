@@ -192,6 +192,17 @@ function dataView($connection){
 }
 
 function intervencionView($connection){
-    echo "<img src='sl.gif' alt=''>";
+    echo "<form action=\"churn.php?selectedTable=Métodos+de+intervención\" method=\"POST\">
+        <input name=\"minAb\" type='number' max='100' min='0'>
+        <input name=\"maxAb\" type='number' max='100' min='0'>
+        <textarea name=\"mensaje\" maxlength='250' name='' id='' cols='30' rows='10'></textarea>
+        <input name='sub' type=\"submit\" value=\"Agregar\">
+    </form>";
+    if(isset($_POST['sub'])){
+        $min = $_POST['minAb'];
+        $max = $_POST['maxAb'];
+        $msg = $_POST['mensaje'];
+        $connection -> query("insert into intervenciones values($min, $max, '$msg')");
+    }
 }
 ?>
