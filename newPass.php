@@ -47,9 +47,8 @@
                 try{
                     $password = $_POST['pass'];
                     $connection -> beginTransaction();
-                    $sql = "UPDATE Naatik_User SET password = '?' where email = '?'";
-                    $statement = $connection -> prepare($sql);
-                    $statement -> execute(array($password, $email));
+                    $statement = $connection -> prepare("UPDATE Naatik_User SET password = '$password' where email = '$email';");
+                    $statement -> execute();
                     $connection -> commit();
                     echo "<p> La contraseña ha sido cambiada con éxito </p>";
                     header("Location: adminPage.php");

@@ -86,8 +86,6 @@
                                 echo "</div>";
                                 break;
                             case "Métodos de intervención":
-                                echo "aún no :(";
-                                echo "<br>";
                                 intervencionView($connection);
                                 break;
                         }
