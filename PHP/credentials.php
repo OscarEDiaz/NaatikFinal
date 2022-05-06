@@ -18,5 +18,5 @@
         )
     );
 
-    $credential = $credentials[2];
+    $credential = $credentials[0];
 ?>

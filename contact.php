@@ -24,7 +24,7 @@
     <nav class="menu-nav">
         <div class="menu-nav-main">          
             <div class="menu-nav-header">
-                <img src="imgs/naatik-logo.png" alt="Logo Naatik" class="naatik-logo">
+                <a href="menu.php"><img src="imgs/naatik-logo.png" alt="Logo Naatik" class="naatik-logo"></a>
                 <h1 class="menu-nav-h1">Naatik</h1>
             </div>
             <form class="logout" action="menu.php" method="POST">
