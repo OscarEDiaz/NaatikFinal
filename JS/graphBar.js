@@ -29,7 +29,7 @@ function graphBar(valuesI, labelsI, backgrC, borderC, canvasID, titleI, xLabel, 
                 }
             }
           },
-          maintainAspectRatio: false,
+          maintainAspectRatio: true,
       }
   };
 

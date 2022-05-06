@@ -182,7 +182,6 @@ body {
 .churn-container {
     height: 80%;
     width: 90%;
-    overflow: auto;
     display: flex;
     flex-direction: column;
 }
@@ -209,9 +208,9 @@ body {
 
 .churn-table-container {
     border: 1px solid #999;
-    overflow: hidden;
+    overflow: auto;
     border-radius: 10px;
-    width: fit-content;
+
 }
 
 .churn {
