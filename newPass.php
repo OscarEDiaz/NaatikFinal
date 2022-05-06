@@ -28,16 +28,19 @@
         <p>Ingrese una nueva contraseña para <?php echo $email; ?></p>
         <label for="pass">Ingrese la nueva contraseña</label>
         <input type="password" name="pass" id="pass">
+        <br>
         <?php 
             if(isset($_POST['pass']) and $_POST['pass'] == "")
-            echo "<p> Ingrese una contraseña </p>";
+            echo "<p> Ingrese una contraseña </p> ";
         ?>
         <label for="passConf">Confirme la nueva contraseña</label>
         <input type="password" name="passConf" id="passConf">
+        <br>
         <?php 
             if(isset($_POST['passConf']) and $_POST['passConf'] == "")
             echo "<p> Ingrese la confirmación de la contraseña </p>";
         ?>
+        <br>
         <input type="submit" value="Cambiar contraseña" name="change">
     <?php
         if(isset($_POST['change']) and $_POST['pass'] != "" and $_POST['passConf'] != ""){

@@ -194,7 +194,10 @@ function dataView($connection){
 function intervencionView($connection){
     echo "<form action=\"churn.php?selectedTable=Métodos+de+intervención\" method=\"POST\" class='form-view'>
         <h1 class='form-header'>Envio de correo</h1>
+        <h4> Porcentaje minimo de abandono </h4>
         <input name=\"minAb\" type='number' max='100' min='0'>
+        <h4> Porcentaje maximo de abandono </h4>
+
         <input name=\"maxAb\" type='number' max='100' min='0'>
         <textarea name=\"mensaje\" maxlength='250' name='' id='' cols='30' rows='10'></textarea>
         <input name='sub' type=\"submit\" value=\"Agregar\" class='input-form'>
