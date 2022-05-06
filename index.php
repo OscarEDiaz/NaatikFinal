@@ -28,10 +28,8 @@
                 $_SESSION['email'] = $emailInp;
                 $isAdmin = $usuarioQuery['adminprivs'] == 1 ? true : false;
                 $_SESSION['isAdmin'] = $isAdmin;
-                if($isAdmin)
-                    header("Location: adminPage.php");
-                else
-                    header("Location: menu.php");
+
+                $isAdmin ? header("Location: adminPage.php") : header("Location: menu.php");
             } else{
                 $contrasenaIncorrecta = true;
             }
